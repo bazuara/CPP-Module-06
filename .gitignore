@@ -1,0 +1,15 @@
+#Globals
+*.o
+.cache
+*.pdf
+*.md
+ex0*/.devcontainer
+ex0*/.vscode
+#leaks reports
+leaks.*.txt
+#ex00
+convert
+#ex01
+#ex02
+#ex03
+
