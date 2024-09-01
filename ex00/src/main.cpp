@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 13:50:02 by bazuara           #+#    #+#             */
-/*   Updated: 2024/08/19 13:50:23 by bazuara          ###   ########.fr       */
+/*   Updated: 2024/09/01 19:21:32 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int main(int argc, char **argv)
     }
 
     ScalarConverter converter(argv[1]);
-    converter.convert();
-    converter.printChar();
-    converter.printInt();
-    converter.printFloat();
-    converter.printDouble();
+    converter.convert(converter);
+    converter.printChar(converter);
+    converter.printInt(converter);
+    converter.printFloat(converter);
+    converter.printDouble(converter);
 
     return 0;
 }
