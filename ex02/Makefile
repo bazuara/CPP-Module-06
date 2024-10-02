@@ -34,7 +34,6 @@ clean:
 	@echo "🧹 Deleting objects..."
 	@rm -f $(OBJECTS)
 	@echo "🧹 Deleting generated extra items from tests"
-	# @rm -f *_shrubbery
 	@echo "🧹 Deleting leaks reports..."
 	@rm -f leaks.$(NAME).txt
 	@echo "✅ Done!"

@@ -6,7 +6,7 @@
 /*   By: bazuara <bazuara@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 19:45:11 by bazuara           #+#    #+#             */
-/*   Updated: 2024/09/02 09:41:12 by bazuara          ###   ########.fr       */
+/*   Updated: 2024/10/02 14:54:23 by bazuara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,41 @@ Base *generate(void)
 
 void identify(Base &p)
 {
-    if (dynamic_cast<A *>(&p))
+    // should check if the cast return is NULL.
+    try
+    {
+        A a = dynamic_cast<A &>(p);
         std::cout << "A" << std::endl;
-    else if (dynamic_cast<B *>(&p))
-        std::cout << "B" << std::endl;
-    else if (dynamic_cast<C *>(&p))
-        std::cout << "C" << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        try
+        {
+            B b = dynamic_cast<B &>(p);
+            std::cout << "B" << std::endl;
+        }
+        catch (std::exception &e)
+        {
+            try
+            {
+                C c = dynamic_cast<C &>(p);
+                std::cout << "C" << std::endl;
+            }
+            catch (std::exception &e)
+            {
+                std::cout << "Unknown" << std::endl;
+            }
+        }
+    }
 }
 
 void identify(Base *p)
 {
+    if (!p)
+    {
+        std::cout << "Unknown" << std::endl;
+        return;
+    }
     if (dynamic_cast<A *>(p))
         std::cout << "A" << std::endl;
     else if (dynamic_cast<B *>(p))
